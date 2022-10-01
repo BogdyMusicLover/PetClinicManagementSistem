@@ -16,4 +16,12 @@ public interface VetRepository {
     List<Vet> getAllVets();
 
     Optional<Vet> findById(int id);
+
+    void updateVetById(
+            int id,
+            String firstName,
+            String lastName,
+            String address,
+            String speciality
+    );
 }

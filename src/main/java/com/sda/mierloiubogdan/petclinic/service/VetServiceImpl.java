@@ -23,10 +23,10 @@ public class VetServiceImpl implements VetService {
             throw new IllegalArgumentException("Last name is INVALID");
         }
         if (address == null || address.isBlank()) {
-            throw new IllegalArgumentException("First name is INVALID");
+            throw new IllegalArgumentException("Address is INVALID");
         }
         if (speciality == null || speciality.isBlank()) {
-            throw new IllegalArgumentException("First name is INVALID");
+            throw new IllegalArgumentException("Speciality is INVALID");
         }
         vetRepository.createVet(firstName, lastName, address, speciality);
 
@@ -43,5 +43,26 @@ public class VetServiceImpl implements VetService {
         Optional<Vet> vet = vetRepository.findById(id);
         return vet;
     }
+
+    @Override
+    public void updateVetById(int id, String firstName, String lastName, String address, String speciality) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id is INVALID");
+        }
+        if (firstName == null || firstName.isBlank()) {
+            throw new IllegalArgumentException("First name is INVALID");
+        }
+        if (lastName == null || lastName.isBlank()) {
+            throw new IllegalArgumentException("Last name is INVALID");
+        }
+        if (address == null || address.isBlank()) {
+            throw new IllegalArgumentException("Address is INVALID");
+        }
+        if (speciality == null || speciality.isBlank()) {
+            throw new IllegalArgumentException("Speciality is INVALID");
+        }
+        vetRepository.updateVetById(id, firstName, lastName, address, speciality);
+    }
+
 
 }

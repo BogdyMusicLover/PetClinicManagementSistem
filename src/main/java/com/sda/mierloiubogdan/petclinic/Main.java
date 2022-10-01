@@ -35,6 +35,9 @@ public class Main {
                 case VIEW_VET_BY_ID:
                     vetController.showVetById();
                     break;
+                case UPDATE_VET_BY_ID:
+                    vetController.updateVetById();
+                    break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected");
                     break;

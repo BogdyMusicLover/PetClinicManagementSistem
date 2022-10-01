@@ -7,11 +7,12 @@ Done    PCMS_2 : Setup Hibernate Model
 Done    PCMS_3 : Setup application architecture
 Done    PCMS_4 : Implement a way for the user to interact with the system
 
+
 Done    PCMS_5 :  As a user i should be able to add a new veterinarian, i should be able to specify firstname, lastname,
       address, speciality
 Done    PCMS_6 :  As a user i should be able to view the details of an existing veterinarian, i should be able to view the
       following data :  id, firstname, lastname,address, speciality
-    PCMS_7 :  As a user I should be able to update all existing veterinarian by choosing the id, i should be able to edit
+Done    PCMS_7 :  As a user I should be able to update all existing veterinarian by choosing the id, i should be able to edit
       firstname, lastname, address, speciality
     PCMS_8 :  As a user i should be able to delete an existing veterinarian by choosing the id
 Done    PCMS_9 :  As a user i should be able to view a list of all veterinarians, i should be able to view the following data:
