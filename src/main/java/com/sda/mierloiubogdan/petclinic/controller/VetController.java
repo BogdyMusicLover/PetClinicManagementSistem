@@ -3,6 +3,7 @@ package com.sda.mierloiubogdan.petclinic.controller;
 import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.service.VetService;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class VetController {
@@ -38,5 +39,20 @@ public class VetController {
         }
     }
 
-
+    public void showVetById() {
+        try {
+            System.out.println("Please insert an id: ");
+            int id = Integer.parseInt(scanner.nextLine().trim());
+            Optional<Vet> optionalVet = vetService.findById(id);
+            if (optionalVet.isPresent()) {
+                System.out.println(optionalVet.get());
+            } else {
+                System.out.println("Vet not found");
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("INVALID ID FORMAT!");
+        } catch (Exception e) {
+            System.err.println("INTERNAL SERVER ERROR");
+        }
+    }
 }

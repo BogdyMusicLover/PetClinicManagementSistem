@@ -3,6 +3,7 @@ package com.sda.mierloiubogdan.petclinic.repository;
 import com.sda.mierloiubogdan.petclinic.model.Vet;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface VetRepository {
     void createVet(
@@ -13,4 +14,6 @@ public interface VetRepository {
     );
 
     List<Vet> getAllVets();
+
+    Optional<Vet> findById(int id);
 }

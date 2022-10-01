@@ -4,6 +4,7 @@ import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class VetServiceImpl implements VetService {
 
@@ -36,4 +37,11 @@ public class VetServiceImpl implements VetService {
         List<Vet> allVets = vetRepository.getAllVets();
         return allVets;
     }
+
+    @Override
+    public Optional<Vet> findById(int id) {
+        Optional<Vet> vet = vetRepository.findById(id);
+        return vet;
+    }
+
 }
