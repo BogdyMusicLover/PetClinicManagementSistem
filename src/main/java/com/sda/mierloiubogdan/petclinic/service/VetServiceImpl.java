@@ -64,5 +64,13 @@ public class VetServiceImpl implements VetService {
         vetRepository.updateVetById(id, firstName, lastName, address, speciality);
     }
 
+    @Override
+    public void deleteVetById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID iS INVALID");
+        }
+        vetRepository.deleteVetById(id);
+    }
+
 
 }

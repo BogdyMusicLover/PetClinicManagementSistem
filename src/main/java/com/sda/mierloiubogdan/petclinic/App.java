@@ -8,7 +8,7 @@ import com.sda.mierloiubogdan.petclinic.utils.UserOption;
 
 import java.util.Scanner;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
         SessionManager.getSessionFactory();
         VetController vetController = new VetController(new VetServiceImpl(new VetRepositoryImpl()));
@@ -37,6 +37,9 @@ public class Main {
                     break;
                 case UPDATE_VET_BY_ID:
                     vetController.updateVetById();
+                    break;
+                case DELETE_VET_BY_ID:
+                    vetController.deleteVetById();
                     break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected");
