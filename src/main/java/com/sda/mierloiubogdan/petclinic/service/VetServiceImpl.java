@@ -1,6 +1,9 @@
 package com.sda.mierloiubogdan.petclinic.service;
 
+import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepository;
+
+import java.util.List;
 
 public class VetServiceImpl implements VetService {
 
@@ -26,5 +29,11 @@ public class VetServiceImpl implements VetService {
         }
         vetRepository.createVet(firstName, lastName, address, speciality);
 
+    }
+
+    @Override
+    public List<Vet> getAllVets() {
+        List<Vet> allVets = vetRepository.getAllVets();
+        return allVets;
     }
 }

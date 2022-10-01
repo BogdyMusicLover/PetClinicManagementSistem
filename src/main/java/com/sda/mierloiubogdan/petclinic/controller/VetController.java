@@ -1,5 +1,6 @@
 package com.sda.mierloiubogdan.petclinic.controller;
 
+import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.service.VetService;
 
 import java.util.Scanner;
@@ -29,4 +30,13 @@ public class VetController {
             System.out.println("INTERNAL SERVER ERROR" + e.getMessage());
         }
     }
+
+    public void showAllVets() {
+        System.out.println("Vet List: ");
+        for (Vet vet : vetService.getAllVets()) {
+            System.out.println(vet.getId() + " " + vet.getFirstName() + " " + vet.getLastName());
+        }
+    }
+
+
 }
