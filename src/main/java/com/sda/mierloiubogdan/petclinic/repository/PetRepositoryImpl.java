@@ -20,14 +20,15 @@ public class PetRepositoryImpl extends BaseRepositoryImpl<Pet> implements PetRep
     }
 
     @Override
-    public void updatePet(int id, String race, Date birthdate, boolean isVaccinated, String ownerName) {
+    public void updatePetById(int id, String race, Date birthdate, boolean isVaccinated, String ownerName) {
         Pet pet = new Pet();
         pet.setId(id);
         pet.setRace(race);
         pet.setDate(birthdate);
         pet.setVaccinated(isVaccinated);
         pet.setOwnerName(ownerName);
-        updateById(id,pet);
+
+        updateById(id, pet);
     }
 }
 

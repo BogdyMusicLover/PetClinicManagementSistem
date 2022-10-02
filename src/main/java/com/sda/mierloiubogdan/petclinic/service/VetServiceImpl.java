@@ -34,6 +34,8 @@ public class VetServiceImpl implements VetService {
         }
         vetRepository.createVet(firstName, lastName, address, speciality);
 
+
+
     }
 
     @Override

@@ -58,6 +58,7 @@ public class BaseRepositoryImpl<T> implements BaseRepository<T> {
             if (entityFromDB != null) {
                 Transaction transaction = session.beginTransaction();
                 try {
+                    session.clear();
                     session.saveOrUpdate(entity);
                     transaction.commit();
                 } catch (Exception e) {

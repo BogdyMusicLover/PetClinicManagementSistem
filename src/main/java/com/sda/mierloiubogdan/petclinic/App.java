@@ -58,16 +58,16 @@ public class App {
                     petController.createPet();
                     break;
                 case VIEW_ALL_PETS:
-                    System.out.println("Soon");
+                    petController.showAllPets();
                     break;
                 case VIEW_PET_BY_ID:
-                    System.out.println("Soon");
+                    petController.showPetById();
                     break;
                 case UPDATE_PET_BY_ID:
-                    System.out.println("Soon");
+                    petController.updatePetById();
                     break;
                 case DELETE_PET_BY_ID:
-                    System.out.println("Soon");
+                    petController.deletePetById();
                     break;
                 case IMPORT_VETS:
                     vetController.importVets();
@@ -83,6 +83,7 @@ public class App {
                     break;
                 case EXIT:
                     System.out.println("Good bye");
+                    System.out.println();
                     break;
             }
         } while (userOption != UserOption.EXIT);

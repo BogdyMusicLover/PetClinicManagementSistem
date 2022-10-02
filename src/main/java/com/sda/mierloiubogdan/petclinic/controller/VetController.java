@@ -36,7 +36,7 @@ public class VetController {
     public void showAllVets() {
         System.out.println("Vet List: ");
         for (Vet vet : vetService.getAllVets()) {
-            System.out.println(vet.getId() + " " + vet.getFirstName() + " " + vet.getLastName());
+            System.out.println(vet.getId() + ", " + vet.getFirstName() + ", " + vet.getLastName());
         }
     }
 

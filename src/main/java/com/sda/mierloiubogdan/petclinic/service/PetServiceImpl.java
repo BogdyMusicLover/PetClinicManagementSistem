@@ -1,5 +1,6 @@
 package com.sda.mierloiubogdan.petclinic.service;
 
+import com.sda.mierloiubogdan.petclinic.model.Pet;
 import com.sda.mierloiubogdan.petclinic.repository.PetRepository;
 
 import java.io.IOException;
@@ -9,6 +10,8 @@ import java.nio.file.Paths;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Optional;
 
 public class PetServiceImpl implements PetService {
 
@@ -36,6 +39,42 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
+    public List<Pet> getAllPets() {
+        List<Pet> allPets = petRepository.getAll();
+        return allPets;
+    }
+
+    public Optional<Pet> findById(int id) {
+        Optional<Pet> pet = petRepository.findById(id);
+        return pet;
+    }
+
+    @Override
+    public void updatePetById(int id, String race, Date birthdate, boolean isVaccinated, String ownerName) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id is INVALID!");
+        }
+        if (race == null || race.isBlank()) {
+            throw new IllegalArgumentException("Race is INVALID");
+        }
+        if (birthdate == null) {
+            throw new IllegalArgumentException("Date is INVALID");
+        }
+        if (ownerName == null || ownerName.isBlank()) {
+            throw new IllegalArgumentException("Owner name is INVALID");
+        }
+        petRepository.updatePetById(id, race, birthdate, isVaccinated, ownerName);
+    }
+
+    @Override
+    public void deletePetById(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID IS INVALID");
+        }
+        petRepository.deleteById(id);
+    }
+
+    @Override
     public void importPets() throws IOException {
         Path filePath = Paths.get("C:\\Users\\Andreea\\Documents\\GitHub\\PetClinicManagementSistem\\src\\main\\resources\\Data\\Pets.txt");
         Files.lines(filePath)
@@ -47,7 +86,7 @@ public class PetServiceImpl implements PetService {
                         Date birthDate = Date.valueOf(LocalDate.parse(lineElements[1], FORMATTER));
                         boolean isVaccinated = Boolean.parseBoolean(lineElements[2]);
                         String ownerName = lineElements[3];
-                        createPet(race,birthDate,isVaccinated,ownerName);
+                        createPet(race, birthDate, isVaccinated, ownerName);
                     }
                 });
     }

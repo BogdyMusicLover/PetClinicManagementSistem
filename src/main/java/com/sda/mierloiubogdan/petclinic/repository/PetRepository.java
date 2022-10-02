@@ -13,7 +13,7 @@ public interface PetRepository extends BaseRepository<Pet> {
             String ownerName
     );
 
-    void updatePet(
+    void updatePetById(
             int id,
             String race,
             Date birthdate,
