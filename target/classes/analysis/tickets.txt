@@ -30,14 +30,13 @@ TODO:   PCMS_11 : As a user i should be able to view the details of an existing 
           id, race, ownerName
 
 
-         PCMS_15 : As a user i should be able to add a consult for a pet, i should be able to specify: vet Id of an existing,
+        PCMS_15 : As a user i should be able to add a consult for a pet, i should be able to specify: vet Id of an existing,
         pet Id of an existing pet, date, description and an id.
 TODO    PCMS_16 : As a user I should be able to view a list of all consults, i should be able to view the following data :
          consult Id, vet Id of an existing, pet Id of an existing pet, date and description
         PCMS_17 : As a user I should be able to update the description for a specific consult by choosing the id.
 
-
-    PCMS_18 : As a user i should be able to import all the data from .csv file collection
+Done    PCMS_18 : As a user i should be able to import all the data from .csv file collection
 
 
 

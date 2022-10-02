@@ -14,6 +14,7 @@ public enum UserOption {
     DELETE_PET_BY_ID(10, "Delete pet by id"),
     IMPORT_VETS(11, "Import vets"),
     IMPORT_PETS(12, "Imports pets"),
+    CREATE_CONSULT(13, "Create consult"),
 
     EXIT(99, "Exit"),
 

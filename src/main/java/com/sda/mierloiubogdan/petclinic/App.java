@@ -1,9 +1,12 @@
 package com.sda.mierloiubogdan.petclinic;
 
+import com.sda.mierloiubogdan.petclinic.controller.ConsultController;
 import com.sda.mierloiubogdan.petclinic.controller.PetController;
 import com.sda.mierloiubogdan.petclinic.controller.VetController;
+import com.sda.mierloiubogdan.petclinic.repository.ConsultRepositoryImpl;
 import com.sda.mierloiubogdan.petclinic.repository.PetRepositoryImpl;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepositoryImpl;
+import com.sda.mierloiubogdan.petclinic.service.ConsultServiceImpl;
 import com.sda.mierloiubogdan.petclinic.service.PetServiceImpl;
 import com.sda.mierloiubogdan.petclinic.service.VetServiceImpl;
 import com.sda.mierloiubogdan.petclinic.utils.SessionManager;
@@ -16,6 +19,12 @@ public class App {
         SessionManager.getSessionFactory();
         VetController vetController = new VetController(new VetServiceImpl(new VetRepositoryImpl()));
         PetController petController = new PetController(new PetServiceImpl(new PetRepositoryImpl()));
+        ConsultController consultController = new ConsultController(new ConsultServiceImpl(
+                new VetRepositoryImpl(),
+                new PetRepositoryImpl(),
+                new ConsultRepositoryImpl()
+        )
+        );
 
         Scanner scanner = new Scanner(System.in);
         UserOption userOption;
@@ -66,13 +75,15 @@ public class App {
                 case IMPORT_PETS:
                     petController.importPets();
                     break;
+                case CREATE_CONSULT:
+                    consultController.createConsult();
+                    break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected");
                     break;
                 case EXIT:
                     System.out.println("Good bye");
                     break;
-
             }
         } while (userOption != UserOption.EXIT);
         SessionManager.shutdown();
