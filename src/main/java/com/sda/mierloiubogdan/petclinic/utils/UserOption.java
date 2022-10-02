@@ -6,7 +6,15 @@ public enum UserOption {
     VIEW_VET_BY_ID(3, "View vet by id"),
     UPDATE_VET_BY_ID(4, "Update vet by id"),
     DELETE_VET_BY_ID(5, "Delete vet by id"),
+
+    ADD_PET(6, "Add a new pet"),
+    VIEW_ALL_PETS(7, "View all pets"),
+    VIEW_PET_BY_ID(8, "View pet by id"),
+    UPDATE_PET_BY_ID(9, "Update pet by id"),
+    DELETE_PET_BY_ID(10, "Delete pet by id"),
+
     EXIT(99, "Exit"),
+
     UNKNOWN(9999999, "Invalid option selected");
 
     private final int numericOption;

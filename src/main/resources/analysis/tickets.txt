@@ -19,7 +19,7 @@ Done    PCMS_9 :  As a user i should be able to view a list of all veterinarians
       id, firstname, lastname
 
 
-    PCMS_10 :As a user i should be able to add a new pet, i should be able to specify race, birthdate, isVaccinated,
+Done    PCMS_10 :As a user i should be able to add a new pet, i should be able to specify race, birthdate, isVaccinated,
              ownerName
     PCMS_11 : As a user i should be able to view the details of an existing pet, i should be able to view the
           following data :  id, race, birthdate, isVaccinated, ownerName

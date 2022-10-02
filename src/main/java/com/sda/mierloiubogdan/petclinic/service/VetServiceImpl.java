@@ -34,7 +34,7 @@ public class VetServiceImpl implements VetService {
 
     @Override
     public List<Vet> getAllVets() {
-        List<Vet> allVets = vetRepository.getAllVets();
+        List<Vet> allVets = vetRepository.getAll();
         return allVets;
     }
 
@@ -69,7 +69,7 @@ public class VetServiceImpl implements VetService {
         if (id <= 0) {
             throw new IllegalArgumentException("ID iS INVALID");
         }
-        vetRepository.deleteVetById(id);
+        vetRepository.deleteById(id);
     }
 
 

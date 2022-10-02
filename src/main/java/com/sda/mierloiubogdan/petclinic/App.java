@@ -1,7 +1,10 @@
 package com.sda.mierloiubogdan.petclinic;
 
+import com.sda.mierloiubogdan.petclinic.controller.PetController;
 import com.sda.mierloiubogdan.petclinic.controller.VetController;
+import com.sda.mierloiubogdan.petclinic.repository.PetRepositoryImpl;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepositoryImpl;
+import com.sda.mierloiubogdan.petclinic.service.PetServiceImpl;
 import com.sda.mierloiubogdan.petclinic.service.VetServiceImpl;
 import com.sda.mierloiubogdan.petclinic.utils.SessionManager;
 import com.sda.mierloiubogdan.petclinic.utils.UserOption;
@@ -12,6 +15,7 @@ public class App {
     public static void main(String[] args) {
         SessionManager.getSessionFactory();
         VetController vetController = new VetController(new VetServiceImpl(new VetRepositoryImpl()));
+        PetController petController = new PetController(new PetServiceImpl(new PetRepositoryImpl()));
 
         Scanner scanner = new Scanner(System.in);
         UserOption userOption;
@@ -40,6 +44,21 @@ public class App {
                     break;
                 case DELETE_VET_BY_ID:
                     vetController.deleteVetById();
+                    break;
+                case ADD_PET:
+                    petController.createPet();
+                    break;
+                case VIEW_ALL_PETS:
+                    System.out.println("Soon");
+                    break;
+                case VIEW_PET_BY_ID:
+                    System.out.println("Soon");
+                    break;
+                case UPDATE_PET_BY_ID:
+                    System.out.println("Soon");
+                    break;
+                case DELETE_PET_BY_ID:
+                    System.out.println("Soon");
                     break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected");
