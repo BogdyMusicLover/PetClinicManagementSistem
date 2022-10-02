@@ -19,27 +19,25 @@ Done    PCMS_9 :  As a user i should be able to view a list of all veterinarians
       id, firstname, lastname
 
 
-    PCMS_10 :As a user i should be able to add a new pet, i should be able to specify race, birthdate, isVaccinated,
+Done    PCMS_10 :As a user i should be able to add a new pet, i should be able to specify race, birthdate, isVaccinated,
              ownerName
-    PCMS_11 : As a user i should be able to view the details of an existing pet, i should be able to view the
+TODO:   PCMS_11 : As a user i should be able to view the details of an existing pet, i should be able to view the
           following data :  id, race, birthdate, isVaccinated, ownerName
-    PCMS_12 :As a user I should be able to update all existing pets by choosing the id, i should be able to edit
+        PCMS_12 :As a user I should be able to update all existing pets by choosing the id, i should be able to edit
           race, birthdate, isVaccinated, ownerName
-    PCMS_13 : As a user i should be able to delete an existing pet by choosing the id
-    PCMS_14 : As a user i should be able to view a list of all pets, i should be able to view the following data:
+        PCMS_13 : As a user i should be able to delete an existing pet by choosing the id
+        PCMS_14 : As a user i should be able to view a list of all pets, i should be able to view the following data:
           id, race, ownerName
 
 
-    PCMS_15 : As a user i should be able to add a consult for a pet, i should be able to specify: vet Id of an existing,
-      pet Id of an existing pet, date, description and an id.
-    PCMS_16 : As a user I should be able to view a list of all consults, i should be able to view the following data :
-      consult Id, vet Id of an existing, pet Id of an existing pet, date and description
-    PCMS_17 : As a user I should be able to update the description for a specific consult by choosing the id.
+         PCMS_15 : As a user i should be able to add a consult for a pet, i should be able to specify: vet Id of an existing,
+        pet Id of an existing pet, date, description and an id.
+TODO    PCMS_16 : As a user I should be able to view a list of all consults, i should be able to view the following data :
+         consult Id, vet Id of an existing, pet Id of an existing pet, date and description
+        PCMS_17 : As a user I should be able to update the description for a specific consult by choosing the id.
 
 
     PCMS_18 : As a user i should be able to import all the data from .csv file collection
 
-
-    PCMS_19 : As a user i should be able to authenticate before using the application
 
 

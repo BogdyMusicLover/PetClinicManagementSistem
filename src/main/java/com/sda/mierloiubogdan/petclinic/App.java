@@ -60,6 +60,12 @@ public class App {
                 case DELETE_PET_BY_ID:
                     System.out.println("Soon");
                     break;
+                case IMPORT_VETS:
+                    vetController.importVets();
+                    break;
+                case IMPORT_PETS:
+                    petController.importPets();
+                    break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected");
                     break;

@@ -2,6 +2,7 @@ package com.sda.mierloiubogdan.petclinic.controller;
 
 import com.sda.mierloiubogdan.petclinic.service.PetService;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -40,5 +41,13 @@ public class PetController {
         }
     }
 
-
+    public void importPets() {
+        try {
+            System.out.println("Import pets started");
+            petService.importPets();
+            System.out.println("Import vets finished");
+        } catch (IOException e) {
+            System.out.println("IMPORT PETS FAILED!" + e.getMessage());
+        }
+    }
 }

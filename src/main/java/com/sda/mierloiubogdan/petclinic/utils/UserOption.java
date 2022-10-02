@@ -12,6 +12,8 @@ public enum UserOption {
     VIEW_PET_BY_ID(8, "View pet by id"),
     UPDATE_PET_BY_ID(9, "Update pet by id"),
     DELETE_PET_BY_ID(10, "Delete pet by id"),
+    IMPORT_VETS(11, "Import vets"),
+    IMPORT_PETS(12, "Imports pets"),
 
     EXIT(99, "Exit"),
 

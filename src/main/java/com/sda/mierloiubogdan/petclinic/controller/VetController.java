@@ -3,6 +3,7 @@ package com.sda.mierloiubogdan.petclinic.controller;
 import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.service.VetService;
 
+import java.io.IOException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -90,6 +91,16 @@ public class VetController {
             System.out.println(e.getMessage());
         } catch (Exception e) {
             System.err.println("INTERNAL SERVER ERROR");
+        }
+    }
+
+    public void importVets() {
+        try {
+            System.out.println("Import vets started");
+            vetService.importVets();
+            System.out.println("Import vets finished");
+        } catch (IOException e) {
+            System.out.println("IMPORT VETS FAILED!" + e.getMessage());
         }
     }
 }
