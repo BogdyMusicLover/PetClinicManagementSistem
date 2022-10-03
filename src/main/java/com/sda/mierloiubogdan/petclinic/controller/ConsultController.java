@@ -1,5 +1,6 @@
 package com.sda.mierloiubogdan.petclinic.controller;
 
+import com.sda.mierloiubogdan.petclinic.model.Consult;
 import com.sda.mierloiubogdan.petclinic.service.ConsultService;
 
 import java.sql.Date;
@@ -26,7 +27,7 @@ public class ConsultController {
             int vetId = Integer.parseInt(scanner.nextLine());
             System.out.println("Please insert the pet ID");
             int petId = Integer.parseInt(scanner.nextLine());
-            System.out.println("Please insert the date of consult");
+            System.out.println("Please insert the date of consult in this format MM-dd-yyyy");
             Date date = Date.valueOf(LocalDate.parse(scanner.nextLine(), FORMATTER));
             System.out.println("Please insert the description of consult");
             String description = scanner.nextLine();
@@ -37,5 +38,31 @@ public class ConsultController {
         } catch (Exception e) {
             System.out.println("INTERNAL SERVER ERROR" + e.getMessage());
         }
+    }
+
+    public void showAllConsults() {
+        System.out.println("This is all consults");
+        for (Consult consult : consultService.getAllConsult()) {
+            System.out.println(consult.getId()
+                    + ", VET_ID: " + consult.getVet().getId()
+                    + ", PET_ID: " + consult.getPet().getId()
+                    + ", DATE: " + consult.getDate()
+                    + ", DESCRIPTION: " + consult.getDescription());
+        }
+    }
+
+    public void updateConsultByID() {
+        try {
+            System.out.println("Please insert the id of consult you want to update:");
+            int id = Integer.parseInt(scanner.nextLine());
+            System.out.println("Insert the new description of consult:");
+            String description = scanner.nextLine();
+            consultService.updateConsultById(id, description);
+        } catch (NumberFormatException e) {
+            System.err.println("INVALID ID FORMAT");
+        } catch (Exception e) {
+            System.err.println("INTERNAL SERVER ERROR" + e.getMessage());
+        }
+
     }
 }

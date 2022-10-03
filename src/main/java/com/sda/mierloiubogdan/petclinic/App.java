@@ -78,6 +78,12 @@ public class App {
                 case CREATE_CONSULT:
                     consultController.createConsult();
                     break;
+                case VIEW_ALL_CONSULTS:
+                    consultController.showAllConsults();
+                    break;
+                case UPDATE_CONSULT_BY_ID:
+                    consultController.updateConsultByID();
+                    break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected");
                     break;

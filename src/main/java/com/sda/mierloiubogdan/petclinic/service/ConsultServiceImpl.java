@@ -1,5 +1,6 @@
 package com.sda.mierloiubogdan.petclinic.service;
 
+import com.sda.mierloiubogdan.petclinic.model.Consult;
 import com.sda.mierloiubogdan.petclinic.model.Pet;
 import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.repository.ConsultRepository;
@@ -7,6 +8,7 @@ import com.sda.mierloiubogdan.petclinic.repository.PetRepository;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepository;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 public class ConsultServiceImpl implements ConsultService {
@@ -34,5 +36,22 @@ public class ConsultServiceImpl implements ConsultService {
         } else {
             throw new IllegalArgumentException("INVALID VET ID");
         }
+    }
+
+    @Override
+    public List<Consult> getAllConsult() {
+        List<Consult> consults = consultRepository.getAll();
+        return consults;
+    }
+
+    @Override
+    public void updateConsultById(int id, String description) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID IS INVALID");
+        }
+        if (description == null || description.isBlank()) {
+            throw new IllegalArgumentException("DESCRIPTION IS INVAID");
+        }
+        consultRepository.updateConsultById(id, description);
     }
 }

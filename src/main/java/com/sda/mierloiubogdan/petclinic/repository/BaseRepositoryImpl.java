@@ -67,7 +67,7 @@ public class BaseRepositoryImpl<T> implements BaseRepository<T> {
                 }
             } else {
                 throw new IllegalArgumentException(
-                        entityClass.getSimpleName() + " VET ID NOT FOUND IN DATABASE"
+                        entityClass.getSimpleName() + " ID NOT FOUND IN DATABASE"
                 );
             }
         }
