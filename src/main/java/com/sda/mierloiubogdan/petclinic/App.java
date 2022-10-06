@@ -28,6 +28,7 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         UserOption userOption;
+
         do {
             try {
                 UserOption.displayAllOptions();
@@ -37,60 +38,31 @@ public class App {
             } catch (NumberFormatException e) {
                 userOption = UserOption.UNKNOWN;
             }
-
             switch (userOption) {
-                case ADD_VET:
-                    vetController.createVet();
-                    break;
-                case VIEW_ALL_VETS:
-                    vetController.showAllVets();
-                    break;
-                case VIEW_VET_BY_ID:
-                    vetController.showVetById();
-                    break;
-                case UPDATE_VET_BY_ID:
-                    vetController.updateVetById();
-                    break;
-                case DELETE_VET_BY_ID:
-                    vetController.deleteVetById();
-                    break;
-                case ADD_PET:
-                    petController.createPet();
-                    break;
-                case VIEW_ALL_PETS:
-                    petController.showAllPets();
-                    break;
-                case VIEW_PET_BY_ID:
-                    petController.showPetById();
-                    break;
-                case UPDATE_PET_BY_ID:
-                    petController.updatePetById();
-                    break;
-                case DELETE_PET_BY_ID:
-                    petController.deletePetById();
-                    break;
-                case IMPORT_VETS:
-                    vetController.importVets();
-                    break;
-                case IMPORT_PETS:
-                    petController.importPets();
-                    break;
-                case CREATE_CONSULT:
-                    consultController.createConsult();
-                    break;
-                case VIEW_ALL_CONSULTS:
-                    consultController.showAllConsults();
-                    break;
-                case UPDATE_CONSULT_BY_ID:
-                    consultController.updateConsultByID();
-                    break;
-                case UNKNOWN:
-                    System.err.println("Invalid option selected");
-                    break;
-                case EXIT:
+                case ADD_VET -> vetController.createVet();
+                case VIEW_ALL_VETS -> vetController.showAllVets();
+                case VIEW_VET_BY_ID -> vetController.showVetById();
+                case UPDATE_VET_BY_ID -> vetController.updateVetById();
+                case DELETE_VET_BY_ID -> vetController.deleteVetById();
+                case ADD_PET -> petController.createPet();
+                case VIEW_ALL_PETS -> petController.showAllPets();
+                case VIEW_PET_BY_ID -> petController.showPetById();
+                case UPDATE_PET_BY_ID -> petController.updatePetById();
+                case DELETE_PET_BY_ID -> petController.deletePetById();
+                case IMPORT_VETS -> vetController.importVets();
+                case IMPORT_PETS -> petController.importPets();
+                case CREATE_CONSULT -> consultController.createConsult();
+                case VIEW_ALL_CONSULTS -> consultController.showAllConsults();
+                case UPDATE_CONSULT_BY_ID -> consultController.updateConsultByID();
+                case SHOW_CONSULT_BY_ID -> consultController.showConsultById();
+                case DELETE_CONSULT_BY_ID -> consultController.deleteById();
+                case IMPORT_CONSULTS -> consultController.importConsults();
+                case DELETE_ALL_CONSULTS -> consultController.deleteAllConsults();
+                case UNKNOWN -> System.err.println("Invalid option selected");
+                case EXIT -> {
                     System.out.println("Good bye");
                     System.out.println();
-                    break;
+                }
             }
         } while (userOption != UserOption.EXIT);
         SessionManager.shutdown();

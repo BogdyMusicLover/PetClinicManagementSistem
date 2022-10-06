@@ -22,9 +22,6 @@ public class Vet {
     @OneToMany(mappedBy = "vet")
     private List<Consult> consults;
 
-
-
-
     public Vet() {
     }
 

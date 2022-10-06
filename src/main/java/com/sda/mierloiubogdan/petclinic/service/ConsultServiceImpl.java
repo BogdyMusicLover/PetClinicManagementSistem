@@ -7,12 +7,19 @@ import com.sda.mierloiubogdan.petclinic.repository.ConsultRepository;
 import com.sda.mierloiubogdan.petclinic.repository.PetRepository;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
 public class ConsultServiceImpl implements ConsultService {
 
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     private final VetRepository vetRepository;
     private final PetRepository petRepository;
     private final ConsultRepository consultRepository;
@@ -40,8 +47,7 @@ public class ConsultServiceImpl implements ConsultService {
 
     @Override
     public List<Consult> getAllConsult() {
-        List<Consult> consults = consultRepository.getAll();
-        return consults;
+        return consultRepository.getAll();
     }
 
     @Override
@@ -50,8 +56,53 @@ public class ConsultServiceImpl implements ConsultService {
             throw new IllegalArgumentException("ID IS INVALID");
         }
         if (description == null || description.isBlank()) {
-            throw new IllegalArgumentException("DESCRIPTION IS INVAID");
+            throw new IllegalArgumentException("DESCRIPTION IS INVALID");
         }
         consultRepository.updateConsultById(id, description);
     }
+
+    @Override
+    public Optional<Consult> findConsultById(int id) {
+        return consultRepository.findById(id);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        if (id <= 0) {
+            System.err.println("ID IS INVALID ");
+        }
+        consultRepository.deleteById(id);
+    }
+
+    @Override
+    public void importConsults() {
+        try {
+            Path filePath = Paths.get("C:\\Users\\Andreea\\Documents\\GitHub\\PetClinicManagementSistem\\src\\main\\resources\\Data\\Consults.txt");
+            Files.lines(filePath)
+                    .skip(1)
+                    .map(lines -> lines.split("\\|"))
+                    .forEach(lineElements -> {
+                        if (lineElements.length == 4) {
+                            Date dateOfConsult = Date.valueOf(LocalDate.parse(lineElements[0], FORMATTER));
+                            String description = lineElements[1];
+                            int vetId = Integer.parseInt(lineElements[2]);
+                            int petId = Integer.parseInt(lineElements[3]);
+                            createConsult(vetId, petId, dateOfConsult, description);
+                        }
+                    });
+        } catch (IOException e) {
+            System.err.println("INVALID DATA FORMAT FOR IMPORT" + e.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteAllConsults() {
+        List<Consult> allConsults = consultRepository.getAll();
+        if (!allConsults.isEmpty()) {
+            consultRepository.deleteAll();
+        } else {
+            System.err.println("The list of consults is empty");
+        }
+    }
+
 }

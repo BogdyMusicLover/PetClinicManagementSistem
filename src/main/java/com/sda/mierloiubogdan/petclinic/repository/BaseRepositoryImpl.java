@@ -3,6 +3,7 @@ package com.sda.mierloiubogdan.petclinic.repository;
 import com.sda.mierloiubogdan.petclinic.utils.SessionManager;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,11 +18,10 @@ public class BaseRepositoryImpl<T> implements BaseRepository<T> {
     @Override
     public List<T> getAll() {
         try (Session session = SessionManager.getSessionFactory().openSession()) {
-            List<T> allEntities = session.createQuery(
+            return session.createQuery(
                     "FROM " + entityClass.getSimpleName(),
                     entityClass
             ).getResultList();
-            return allEntities;
         }
     }
 
@@ -91,6 +91,19 @@ public class BaseRepositoryImpl<T> implements BaseRepository<T> {
                         entityClass.getSimpleName() + " ID NOT FOUND IN DATABASE"
                 );
             }
+        }
+    }
+
+    @Override
+    public void deleteAll() {
+        try (Session session = SessionManager.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            Query<T> query = session.createNativeQuery(
+                    "DELETE FROM " + entityClass.getSimpleName(), entityClass);
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            System.err.println("INTERNAL SERVER ERROR" + e.getMessage());
         }
     }
 }

@@ -40,8 +40,7 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public List<Pet> getAllPets() {
-        List<Pet> allPets = petRepository.getAll();
-        return allPets;
+        return petRepository.getAll();
     }
 
     public Optional<Pet> findById(int id) {

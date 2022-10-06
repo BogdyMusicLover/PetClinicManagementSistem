@@ -49,4 +49,6 @@ public class ConsultRepositoryImpl extends BaseRepositoryImpl<Consult> implement
             }
         }
     }
+
+
 }

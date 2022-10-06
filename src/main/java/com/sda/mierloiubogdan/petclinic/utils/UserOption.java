@@ -6,7 +6,6 @@ public enum UserOption {
     VIEW_VET_BY_ID(3, "View vet by id"),
     UPDATE_VET_BY_ID(4, "Update vet by id"),
     DELETE_VET_BY_ID(5, "Delete vet by id"),
-
     ADD_PET(6, "Add a new pet"),
     VIEW_ALL_PETS(7, "View all pets"),
     VIEW_PET_BY_ID(8, "View pet by id"),
@@ -17,6 +16,10 @@ public enum UserOption {
     CREATE_CONSULT(13, "Add a new consult"),
     VIEW_ALL_CONSULTS(14, "View all consults"),
     UPDATE_CONSULT_BY_ID(15, "Update consult by id"),
+    SHOW_CONSULT_BY_ID(16, "View consult by id"),
+    DELETE_CONSULT_BY_ID(17, "Delete consult by id"),
+    IMPORT_CONSULTS(18, "Import consults from .csv file"),
+    DELETE_ALL_CONSULTS(19, "Delete all consults"),
 
     EXIT(99, "Exit"),
 
