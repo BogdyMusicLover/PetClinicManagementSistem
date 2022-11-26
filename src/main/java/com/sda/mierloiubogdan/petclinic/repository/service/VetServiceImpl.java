@@ -1,4 +1,4 @@
-package com.sda.mierloiubogdan.petclinic.service;
+package com.sda.mierloiubogdan.petclinic.repository.service;
 
 import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepository;

@@ -1,15 +1,14 @@
 package com.sda.mierloiubogdan.petclinic.repository;
-
 import com.sda.mierloiubogdan.petclinic.model.Consult;
 import com.sda.mierloiubogdan.petclinic.model.Pet;
 import com.sda.mierloiubogdan.petclinic.model.Vet;
 import com.sda.mierloiubogdan.petclinic.utils.SessionManager;
 import org.hibernate.Session;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.sql.Date;
 import java.time.LocalDate;
+
 
 public class ConsultRepositoryTest {
 
@@ -37,7 +36,6 @@ public class ConsultRepositoryTest {
         Assertions.assertEquals(pet.getRace(), consult.getPet().getRace());
         Assertions.assertEquals(date, consult.getDate());
         Assertions.assertEquals(description, consult.getDescription());
-
         Assertions.assertEquals(vet.toString(), consult.getVet().toString());
 
 

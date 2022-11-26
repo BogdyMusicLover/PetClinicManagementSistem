@@ -1,7 +1,7 @@
 package com.sda.mierloiubogdan.petclinic.controller;
 
 import com.sda.mierloiubogdan.petclinic.model.Vet;
-import com.sda.mierloiubogdan.petclinic.service.VetService;
+import com.sda.mierloiubogdan.petclinic.repository.service.VetService;
 
 import java.io.IOException;
 import java.util.Optional;

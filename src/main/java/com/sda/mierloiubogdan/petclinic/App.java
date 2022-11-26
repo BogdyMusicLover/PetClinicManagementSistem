@@ -6,9 +6,9 @@ import com.sda.mierloiubogdan.petclinic.controller.VetController;
 import com.sda.mierloiubogdan.petclinic.repository.ConsultRepositoryImpl;
 import com.sda.mierloiubogdan.petclinic.repository.PetRepositoryImpl;
 import com.sda.mierloiubogdan.petclinic.repository.VetRepositoryImpl;
-import com.sda.mierloiubogdan.petclinic.service.ConsultServiceImpl;
-import com.sda.mierloiubogdan.petclinic.service.PetServiceImpl;
-import com.sda.mierloiubogdan.petclinic.service.VetServiceImpl;
+import com.sda.mierloiubogdan.petclinic.repository.service.ConsultServiceImpl;
+import com.sda.mierloiubogdan.petclinic.repository.service.PetServiceImpl;
+import com.sda.mierloiubogdan.petclinic.repository.service.VetServiceImpl;
 import com.sda.mierloiubogdan.petclinic.utils.SessionManager;
 import com.sda.mierloiubogdan.petclinic.utils.UserOption;
 

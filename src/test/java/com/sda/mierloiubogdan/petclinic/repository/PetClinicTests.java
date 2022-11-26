@@ -5,9 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-@Suite.SuiteClasses({VetRepositoryTests.class})
-@ExtendWith(MockitoExtension.class)
 @RunWith(Suite.class)
+@Suite.SuiteClasses({VetRepositoryTests.class, ConsultRepositoryTest.class})
+@ExtendWith(MockitoExtension.class)
 public class PetClinicTests {
-
 }
