@@ -1,14 +1,14 @@
 package com.sda.mierloiubogdan.petclinic.model;
-
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "pet")
 public class Pet {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     @Column(name = "race")
@@ -91,6 +91,18 @@ public class Pet {
                 ", isVaccinated=" + isVaccinated +
                 ", ownerName='" + ownerName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pet pet)) return false;
+        return isVaccinated == pet.isVaccinated && Objects.equals(id, pet.id) && Objects.equals(race, pet.race) && Objects.equals(date, pet.date) && Objects.equals(ownerName, pet.ownerName) && Objects.equals(consults, pet.consults);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, race, date, isVaccinated, ownerName, consults);
     }
 }
 

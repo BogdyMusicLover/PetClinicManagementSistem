@@ -39,7 +39,7 @@ public class BaseRepositoryImpl<T> implements BaseRepository<T> {
         try (Session session = SessionManager.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
 
-            session.save(entity);
+            session.persist(entity);
             transaction.commit();
 
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class BaseRepositoryImpl<T> implements BaseRepository<T> {
                 Transaction transaction = session.beginTransaction();
                 try {
                     session.clear();
-                    session.saveOrUpdate(entity);
+                    session.merge(entity);
                     transaction.commit();
                 } catch (Exception e) {
                     transaction.rollback();

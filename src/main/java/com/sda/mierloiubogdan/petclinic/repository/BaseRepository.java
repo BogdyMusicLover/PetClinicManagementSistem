@@ -5,11 +5,10 @@ import java.util.Optional;
 
 public interface BaseRepository<T> {
 
+    void create(T entity);
     List<T> getAll();
 
     Optional<T> findById(int id);
-
-    void create(T entity);
 
     void updateById(int id, T entity);
 

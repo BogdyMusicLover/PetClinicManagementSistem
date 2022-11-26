@@ -1,5 +1,4 @@
 package com.sda.mierloiubogdan.petclinic.utils;
-
 import com.sda.mierloiubogdan.petclinic.model.Consult;
 import com.sda.mierloiubogdan.petclinic.model.Pet;
 import com.sda.mierloiubogdan.petclinic.model.Vet;

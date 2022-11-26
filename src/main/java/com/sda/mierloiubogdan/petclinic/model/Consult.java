@@ -1,7 +1,10 @@
 package com.sda.mierloiubogdan.petclinic.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "consult")
@@ -17,6 +20,7 @@ public class Consult {
 
     @ManyToOne
     @JoinColumn(name = "vet_id")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Vet vet;
 
     @ManyToOne
@@ -84,5 +88,15 @@ public class Consult {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Consult consult)) return false;
+        return Objects.equals(id, consult.id) && Objects.equals(date, consult.date) && Objects.equals(description, consult.description) && Objects.equals(vet, consult.vet) && Objects.equals(pet, consult.pet);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date, description, vet, pet);
+    }
 }

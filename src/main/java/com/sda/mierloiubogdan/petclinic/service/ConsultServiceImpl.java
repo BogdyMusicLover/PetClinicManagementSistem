@@ -13,13 +13,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
+import static com.sda.mierloiubogdan.petclinic.utils.Utils.FORMATTER;
+
 public class ConsultServiceImpl implements ConsultService {
 
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     private final VetRepository vetRepository;
     private final PetRepository petRepository;
     private final ConsultRepository consultRepository;
@@ -38,10 +38,10 @@ public class ConsultServiceImpl implements ConsultService {
             if (petOptional.isPresent()) {
                 consultRepository.createConsult(vetOptional.get(), petOptional.get(), date, description);
             } else {
-                throw new IllegalArgumentException("INVALID PET ID");
+                throw new IllegalArgumentException(" INVALID PET ID");
             }
         } else {
-            throw new IllegalArgumentException("INVALID VET ID");
+            throw new IllegalArgumentException(" INVALID VET ID");
         }
     }
 
