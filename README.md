@@ -1,2 +1,2 @@
-# PetClinicManagementSistem
-Pet Clinic Management Sistem for SDA - Practical Project
+# PetClinicManagementSystem
+Pet Clinic Management System for SDA - Practical Project
